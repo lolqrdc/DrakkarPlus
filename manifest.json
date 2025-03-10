@@ -1,0 +1,16 @@
+{
+	"manifest_version": 3,
+	"name": "DrakkarPlus",
+	"version": "1.0",
+	"description": "Extension pour s'informer sur les informations de l'association Drakkar",
+	"permissions": ["scripting"],
+	"host_permissions": ["https://profile.intra.42.fr/*"],
+	"content_scripts": [
+	  {
+		"matches": ["https://profile.intra.42.fr/*"],
+		"js": ["content.js"],
+		"run_at": "document_idle"
+	  }
+	]
+  }
+  
