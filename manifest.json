@@ -8,13 +8,13 @@
 	"content_scripts": [
 	  {
 		"matches": ["https://profile.intra.42.fr/*"],
-		"js": ["content_profile_v3.js"],
-		"css": ["dark_profile_v3.css"]
+		"js": ["src/popup/icon-profil.js"],
+		"css": ["src/content/dark-profil.css"]
 	  },
 	  {
 		"matches": ["https://projects.intra.42.fr/*"],
-		"js": ["content_intra.js"],
-		"css": ["dark_intra.css"]
+		"js": ["src/popup/icon-intra.js"],
+		"css": ["src/content/dark-intra.css"]
 	  }
 	]
 }
