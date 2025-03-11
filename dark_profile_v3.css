@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   dark.css                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: fbes <fbes@student.codam.nl>                 +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/11/29 17:39:48 by fbes          #+#    #+#                 */
-/*   Updated: 2022/08/09 12:08:49 by fbes          ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   dark.css                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: eanne <eanne@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/29 17:39:48 by fbes              #+#    #+#             */
+/*   Updated: 2025/03/11 09:12:04 by eanne            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,9 @@ input[type="search"] {
 
 .border-b-legacy-main-border {
     border-bottom-color: #ffffff !important;
+}
+
+[data-radix-popper-content-wrapper] {
+    background-color: rgb(18 18 18) !important;
+    color: rgb(229 231 235) !important;
 }

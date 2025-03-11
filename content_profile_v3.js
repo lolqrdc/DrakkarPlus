@@ -36,7 +36,7 @@ if (window.location.hostname === "profile.intra.42.fr") {
                 window.location.href = "https://edb42.fr";
             });
             
-            targetElement.appendChild(button);
+            targetElement.prepend(button);
         }
-    }, 1000);
+    }, 500);
 }
