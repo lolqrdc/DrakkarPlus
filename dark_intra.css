@@ -1,0 +1,64 @@
+.container-item {
+    background-color: #000000 !important;
+	color: white !important;
+	border: none !important;
+}
+
+.row {
+    background-color: #000000 !important;
+	color: white !important;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #ffffff !important;
+}
+
+#project-show .project-status-box[data-status=subscribed] {
+    background-color: #00babc6b !important;
+}
+
+.btn.btn-primary {
+    background-color: #00babc6b !important;
+    border-color: #00babc6b !important;
+}
+
+.main-navbar {
+    color: #ffffff !important;
+    background-color: #000000 !important;
+}
+
+.main-navbar .main-navbar-user-nav>.dropdown>a>span {
+    color: #ffffff !important;
+}
+
+.fal {
+	color: #ffffff !important;
+}
+
+.main-navbar .main-navbar-search:before {
+    color: #ffffff !important;
+}
+
+.app-sidebar-left {
+    background-color: #000000 !important;
+}
+
+.main-left-navbar {
+    background-color: #000000 !important;
+}
+
+.main-navbar .main-navbar-logo {
+    background-color: #000000 !important;
+}
+
+.projects-menu-list .project-item {
+    color: #ffffff !important;
+}
+
+.project-status-icon {
+    color: #ffffff !important;
+}
+
+.main-left-navbar li a {
+    color: #ffffff !important;
+}
