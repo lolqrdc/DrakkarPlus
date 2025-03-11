@@ -4,12 +4,17 @@
 	"version": "1.0",
 	"description": "Extension pour s'informer sur les informations de l'association Drakkar",
 	"permissions": ["scripting"],
-	"host_permissions": ["https://profile.intra.42.fr/*"],
+	"host_permissions": ["https://profile.intra.42.fr/*", "https://projects.intra.42.fr/*"],
 	"content_scripts": [
 	  {
 		"matches": ["https://profile.intra.42.fr/*"],
-		"js": ["content.js"],
-		"css": ["dark.css"]
+		"js": ["content_profile_v3.js"],
+		"css": ["dark_profile_v3.css"]
+	  },
+	  {
+		"matches": ["https://projects.intra.42.fr/*"],
+		"js": ["content_intra.js"],
+		"css": ["dark_intra.css"]
 	  }
 	]
 }
