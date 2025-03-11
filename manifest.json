@@ -9,8 +9,8 @@
 	  {
 		"matches": ["https://profile.intra.42.fr/*"],
 		"js": ["content.js"],
-		"run_at": "document_idle"
+		"css": ["dark.css"]
 	  }
 	]
-  }
+}
   

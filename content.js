@@ -1,7 +1,6 @@
 // content.js
 
 if (window.location.hostname === "profile.intra.42.fr") {
-    
     const interval = setInterval(() => {
         const targetElement = document.querySelector(".h-full.flex.flex-row.items-center");
         
