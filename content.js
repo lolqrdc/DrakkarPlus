@@ -38,5 +38,5 @@ if (window.location.hostname === "profile.intra.42.fr") {
             
             targetElement.prepend(button);
         }
-    }, 1000);
+    }, 500);
 }
