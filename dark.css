@@ -1,0 +1,86 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   dark.css                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: fbes <fbes@student.codam.nl>                 +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/11/29 17:39:48 by fbes          #+#    #+#                 */
+/*   Updated: 2022/08/09 12:08:49 by fbes          ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
+.bg-zinc-50 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(18 18 18) !important;
+}
+
+.bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(18 18 18 / var(--tw-bg-opacity)) !important;
+}
+
+.slider-container {
+	background-color: rgb(18 18 18) !important;
+	color: rgb(229 231 235) !important;
+}
+
+.justify-center {
+	background-color: rgb(18 18 18) !important;
+}
+
+.leading-5 {
+    color: rgb(229 231 235) !important;
+}
+
+.font-bold {
+	color: rgb(229 231 235) !important;
+}
+
+.text-base {
+	color: rgb(229 231 235) !important;
+}
+
+.text-sm {
+	color: rgb(229 231 235) !important;
+}
+
+path {
+    stroke: rgb(229 231 235) !important;
+}
+
+input[type="search"] {
+    background-color: rgb(18 18 18) !important;
+}
+
+.md\:drop-shadow-md {
+	border: solid 1px rgb(229 231 235);
+}
+
+.border-neutral-600 {
+    border-color: rgb(229 231 235) !important;
+}
+
+.bg-ft-gray\/50 {
+    background-color: rgb(18 18 18) !important;
+}
+
+.bg-ft-gray {
+    background-color: rgb(18 18 18) !important;
+}
+
+.border-ft-gray-border {
+    border-color: rgb(229 231 235) !important;
+}
+
+.bg-\[\#4E5566\] {
+    background-color: rgb(18 18 18) !important;
+}
+
+.border-\[hsla\(0\,_0\%\,_20\%\,_1\)\] {
+    border-color: #ffffff !important;
+}
+
+.border-b-legacy-main-border {
+    border-bottom-color: #ffffff !important;
+}
