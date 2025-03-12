@@ -12,7 +12,7 @@
 		"css": ["src/content/dark-profil.css"]
 	  },
 	  {
-		"matches": ["https://projects.intra.42.fr/*"],
+		"matches": ["https://projects.intra.42.fr/*", "https://meta.intra.42.fr/*", "https://elearning.intra.42.fr/*", "https://shop.intra.42.fr/*"],
 		"js": ["src/popup/icon-intra.js"],
 		"css": ["src/content/dark-intra.css"]
 	  }
