@@ -67,3 +67,11 @@ h1, h2, h3, h4, h5 {
 .main-left-navbar li a {
     color: #ffffff !important;
 }
+
+text {
+    fill: #ffffff !important;
+}
+
+.highcharts-background {
+    fill: #000000 !important;
+}
