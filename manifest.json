@@ -8,7 +8,7 @@
 	"content_scripts": [
 	  {
 		"matches": ["https://profile.intra.42.fr/*"],
-		"js": ["src/popup/icon-profil.js"],
+		"js": ["src/popup/icon-profil.js", "src/popup/modal-profil.js"],
 		"css": ["src/content/dark-profil.css"]
 	  },
 	  {
