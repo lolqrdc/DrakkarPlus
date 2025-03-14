@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dark.css                                           :+:      :+:    :+:   */
+/*   dark-profil.css                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eanne <eanne@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:39:48 by fbes              #+#    #+#             */
-/*   Updated: 2025/03/11 09:12:04 by eanne            ###   ########.fr       */
+/*   Updated: 2025/03/14 08:26:13 by eanne            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,13 @@
 	color: rgb(229 231 235) !important;
 }
 
-.justify-center {
+/*.justify-center {
 	background-color: rgb(18 18 18) !important;
+}*/
+
+.table-fixed {
+    background-color: rgb(18 18 18) !important;
+    color: rgb(255, 255, 255) !important;
 }
 
 .leading-5 {
@@ -47,6 +52,18 @@
 
 path {
     stroke: rgb(229 231 235) !important;
+}
+
+.stroke-red-500 {
+    stroke: #ef4444 !important;
+}
+
+.stroke-legacy-main {
+    stroke: #009A9F !important;
+}
+
+.gap-1 {
+    color: white !important;
 }
 
 input[type="search"] {
@@ -88,4 +105,8 @@ input[type="search"] {
 [data-radix-popper-content-wrapper] {
     background-color: rgb(18 18 18) !important;
     color: rgb(229 231 235) !important;
+}
+
+.flex-col {
+    background-color: rgb(18 18 18) !important;
 }
