@@ -42,19 +42,26 @@ if (window.location.hostname === "profile.intra.42.fr") {
 
             // Items du menu : 
             const menuItems = [
-                { text: "Stock", url: "https://edb42.fr" }
+                { text: "Stock", action: () => createCustomModal() }
             ];
 
             // Création des éléments du menu : 
             menuItems.forEach(item => {
                 const link = document.createElement("a");
                 link.innerText = item.text;
-                link.href = item.url;
                 link.style.color = "#333";
                 link.style.padding = "12px 16px";
                 link.style.textDecoration = "none";
                 link.style.display = "block";
                 link.style.transition = "background-color 0.3s ease";
+                link.style.cursor = "pointer";
+
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    if (item.action) {
+                        item.action();
+                    }
+                });
 
                 link.addEventListener("mouseover", () => {
                     link.style.backgroundColor = "#f1f1f1";

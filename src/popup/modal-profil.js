@@ -320,6 +320,3 @@ function createCustomModal() {
 
     document.head.appendChild(styles);
 }
-
-// Exemple d'utilisation
-createCustomModal();
