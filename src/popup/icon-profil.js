@@ -32,13 +32,12 @@ if (window.location.hostname === "profile.intra.42.fr") {
             dropdown.style.display = "none";
             dropdown.style.position = "absolute";
             dropdown.style.backgroundColor = "white";
-            dropdown.style.minWidth = "160px";
+            dropdown.style.minWidth = "177px";
             dropdown.style.boxShadow = "0px 8px 16px 0px rgba(0,0,0,0.2)";
             dropdown.style.borderRadius = "4px";
             dropdown.style.zIndex = "1";
             dropdown.style.top = "100%";
             dropdown.style.left = "10px";
-            dropdown.style.marginTop = "5px";
 
             // Items du menu : 
             const menuItems = [
