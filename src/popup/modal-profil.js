@@ -18,146 +18,308 @@ getUsername((eanneValue) => {
     console.log(eanneValue);
 });
 
-function Stock() {
-    // Créer un élément div pour la modal
-    const modal = document.createElement('div');
-    modal.className = 'custom-modal';
-    
-    // Créer un élément div pour le contenu de la modal
-    const modalContent = document.createElement('div');
-    modalContent.className = 'custom-modal-content';
+function createCustomModal() {
+    // Vérifier si une modale existe déjà
+    if (document.getElementById("customModal")) return;
 
-    // Ajouter du contenu à la modal
-    const modalHeader = document.createElement('div');
-    modalHeader.className = 'custom-modal-header';
-    const title = document.createElement('h2');
-    title.className = 'custom-modal-title';
+    // Création des éléments HTML
+    const modalOverlay = document.createElement("div");
+    modalOverlay.id = "customModal";
+    modalOverlay.innerHTML = `
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Épicierie Stock</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <a class="btn btn-outline-light w-100" href="call_epicerie">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+						<path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+					</svg>
+					 Appeler un vendeur
+                </a>
+                <br>
+                <br>
+                
+            </div>
+            <div class="modal-footer">
+                <button class="action-btn">Fermer</button>
+            </div>
+        </div>
+    `;
 
-    // Créer un élément div pour contenir le SVG et le texte
-    const titleContainer = document.createElement('div');
-    titleContainer.style.display = 'flex';
-    titleContainer.style.alignItems = 'center';
+    // Ajouter la modale au body
+    document.body.appendChild(modalOverlay);
 
-    // Créer un élément SVG
-    const svgNamespace = 'http://www.w3.org/2000/svg';
-    const svgElement = document.createElementNS(svgNamespace, 'svg');
-    svgElement.setAttribute('width', '16');
-    svgElement.setAttribute('height', '16');
-    svgElement.setAttribute('fill', 'black'); // Changer la couleur en noir
-    svgElement.setAttribute('class', 'bi bi-shop');
-    svgElement.setAttribute('viewBox', '0 0 16 16');
+    // Sélection des éléments pour interactivité
+    const closeButton = modalOverlay.querySelector(".close-btn");
+    const actionButton = modalOverlay.querySelector(".action-btn");
 
-    // Créer un élément path pour le SVG
-    const pathElement = document.createElementNS(svgNamespace, 'path');
-    pathElement.setAttribute('d', 'M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5M4 15h3v-5H4zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zm3 0h-2v3h2z');
+    // Fonction pour fermer la modale
+    function closeModal() {
+        modalOverlay.classList.add("closing");
+        setTimeout(() => {
+            modalOverlay.remove();
+        }, 300);
+    }
 
-    // Ajouter le path au SVG
-    svgElement.appendChild(pathElement);
+    // Événements de fermeture
+    closeButton.addEventListener("click", closeModal);
+    actionButton.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) closeModal();
+    });
 
-    // Ajouter le SVG et le texte au conteneur
-    titleContainer.appendChild(svgElement);
-    const textNode = document.createTextNode(' Stock Épicerie');
-    titleContainer.appendChild(textNode);
-
-    // Ajouter le conteneur au titre
-    title.appendChild(titleContainer);
-    
-    // Ajouter un bouton pour fermer la modal
-    const closeButton = document.createElement('button');
-    closeButton.className = 'custom-modal-close';
-    closeButton.innerHTML = '&times;';
-    closeButton.onclick = function() {
-        document.body.removeChild(modal);
-    };
-    
-    modalHeader.appendChild(title);
-    modalHeader.appendChild(closeButton);
-    
-    // Ajouter le contenu à la modal
-    const modalBody = document.createElement('div');
-    modalBody.className = 'custom-modal-body';
-    const bodyContent = document.createElement('p');
-    bodyContent.textContent = "Ceci est une superbe modal avec un design moderne et épuré !";
-    modalBody.appendChild(bodyContent);
-    
-    // Ajouter les éléments au contenu de la modal
-    modalContent.appendChild(modalHeader);
-    modalContent.appendChild(modalBody);
-    modal.appendChild(modalContent);
-    
-    // Ajouter la modal au corps du document
-    document.body.appendChild(modal);
-
-    // Ajouter les styles CSS dynamiquement
-    const style = document.createElement('style');
-    style.textContent = `
-        .custom-modal {
+    // Ajout des styles CSS
+    const styles = document.createElement("style");
+    styles.innerHTML = `
+        /* Style de fond semi-transparent */
+        #customModal {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+            z-index: 1000;
             opacity: 0;
             animation: fadeIn 0.3s forwards;
-            z-index: 1000;
         }
-        
-        .custom-modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            width: 400px;
-            max-width: 80%;
-            text-align: center;
-            position: relative;
-            animation: slideDown 0.3s ease-out;
+
+        /* Conteneur de la modale */
+        .modal-container {
+            background: #333;
+            width: 75%;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease-out;
+            display: flex;
+            flex-direction: column;
+            max-height: 90vh;
+            overflow-y: auto;
+            color: #f8f9fa;
         }
-        
-        .custom-modal-header {
+
+        /* En-tête de la modale */
+        .modal-header {
+            background: #444;
+            color: #f8f9fa;
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
+            font-size: 18px;
         }
-        
-        .custom-modal-title {
-            margin: 0;
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        .custom-modal-close {
+
+        .modal-header .close-btn {
             background: none;
             border: none;
             font-size: 24px;
+            color: #f8f9fa;
             cursor: pointer;
         }
-        
-        .custom-modal-body {
+
+        /* Corps de la modale */
+        .modal-body {
+            padding: 20px;
+            font-size: 16px;
+            background: #333;
+            color: #f8f9fa;
+        }
+
+        /* Pied de la modale */
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: #444;
+        }
+
+        .modal-footer .action-btn {
+            background: #555;
+            color: #f8f9fa;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
             font-size: 16px;
         }
-        
+
+        .modal-footer .action-btn:hover {
+            background: #666;
+        }
+
+        /* Animation d'apparition */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        @keyframes slideDown {
+        @keyframes slideIn {
             from { transform: translateY(-20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-    `;
-    document.head.appendChild(style);
+
+        /* Animation de fermeture */
+        .closing {
+            animation: fadeOut 0.3s forwards;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        /* Style du bouton */
+        .btn-outline-light {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* Espacement entre l'icône et le texte */
+            width: 100%;
+            padding: 10px 15px;
+            border: 2px solid #f8f9fa;
+            color: #f8f9fa;
+            background: transparent;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+        }
+
+        .btn-outline-light:hover {
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .btn-outline-light:active {
+            background: #e0e0e0;
+            color: #333;
+        }
+
+        /* Style de l'icône SVG */
+        .btn-outline-light svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Animation de l'icône au survol */
+        .btn-outline-light:hover svg {
+            transform: scale(1.1);
+        }
+
+        /* Conteneur de la grille */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* Colonnes */
+        .col-md-4 {
+            flex: 1 1 calc(33.333% - 15px);
+            max-width: calc(33.333% - 15px);
+        }
+
+        @media (max-width: 992px) {
+            .col-md-4 {
+                flex: 1 1 calc(50% - 15px);
+                max-width: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .col-md-4 {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* Carte produit */
+        .card {
+            background: #444;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            color: #f8f9fa;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Image du produit */
+        .card-img-top {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        /* Corps de la carte */
+        .card-body {
+            padding: 15px;
+        }
+
+        /* Titre du produit */
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #f8f9fa;
+            margin-bottom: 10px;
+        }
+
+        /* Table des variations */
+        .variations-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .variations-table td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .variations-table td:first-child {
+            text-align: left;
+        }
+
+        /* Badge de stock */
+        .badge-stock {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .bg-danger {
+            background-color: red;
+        }
+
+        .bg-success {
+            background-color: green;
+        }
+
+        /* Prix */
+        .fw-bold {
+            font-weight: bold;
+            color: #f8f9fa;
+        }`;
+
+    document.head.appendChild(styles);
 }
 
-Stock();
-
-// Appeler la fonction pour récupérer la valeur 'eanne'
-getEanneValue();
+// Exemple d'utilisation
+createCustomModal();
